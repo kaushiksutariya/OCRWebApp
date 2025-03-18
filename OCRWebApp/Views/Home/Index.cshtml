@@ -1,0 +1,20 @@
+﻿@{
+    ViewData["Title"] = "OCR Business Card Scanner";
+}
+
+<h2>Upload Business Card</h2>
+<form method="post" enctype="multipart/form-data" asp-controller="Home" asp-action="UploadImage">
+    <input type="file" name="file" accept="image/*" required />
+    <button type="submit">Extract Text</button>
+</form>
+
+@if (ViewBag.ExtractedText != null)
+{
+    <h3>Extracted Text:</h3>
+    <textarea rows="10" cols="50">@ViewBag.ExtractedText</textarea>
+}
+
+@if (ViewBag.Message != null)
+{
+    <p style="color:red;">@ViewBag.Message</p>
+}
